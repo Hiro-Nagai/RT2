@@ -41,8 +41,7 @@
             <div class="header-right-container">
               <% if user_signed_in? %>
                 <div class="p-2 m-1 text-white header-user-name"><%= current_user.name %></div>
-
-                
+               
 <!--                <div class="user_header_image nav-item p-2 m-1">
                   <% if current_user.image.attached? %>
                     <%= image_tag current_user.image ,style: "border-radius: 50%",:size => "65x65" %>
@@ -50,21 +49,23 @@
                     <%= image_tag "upper_body-2.png",style: "border-radius: 50%",:size => "65x65"%>
                   <%end%>
                   </div>
--->  
-                  
-                  <div class="dropdown">
-                    <button class="mx-3 p-1 host-icon nav-trigger" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                     <%= image_tag current_user.image ,style: "border-radius: 50%",:size => "65x65" %>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="#"><%= link_to "ルーム登録", new_room_path %></a></li>
-                      <li><a class="dropdown-item" href="#"><%= link_to "予約済みルーム一覧", reservations_path %></a></li>
-                      <li><a class="dropdown-item" href="#"><%= link_to "登録済みルーム一覧", user_path(id: current_user) %></a></li>
-                      <li><a class="dropdown-item" href="#"><%= link_to "設定", users_path %></a></li>
-                      <li><a class="dropdown-item" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a></li>
-                    </ul>
-                  </div>
-                  
+-->                   
+                <div class="dropdown">
+                  <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <% if current_user.image.attached? %>
+                      <%= image_tag current_user.image, style: "border-radius: 50%",:size => "65x65" %>
+                    <% else %>
+                      <img class="host-icon" src="/assets/default_icon.jpeg">  
+                    <% end %>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><%= link_to "ルーム登録", new_room_path, class:"dropdown-item" %></li>
+                    <li><%= link_to "予約ルーム一覧", reservations_path, class:"dropdown-item" %></li>
+                    <li><%= link_to "登録済みルーム一覧", rooms_path, class:"dropdown-item" %></li>
+                    <li><%= link_to "設定", users_path, class:"dropdown-item" %></li>
+                    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
+                  </ul>
+                </div>                  
 
                   <% else %>  
                     <%= link_to"ログイン","/users/sign_in",class:"home-link-user p-2 m-1 btn btn-outline-primary text-white bg-primary"%>
@@ -72,16 +73,7 @@
               <% end %>
 
                  
-                  <div class="user_headnav p-2 bg-light text-left">  
-                    <ul class="p-2 mb-0 header-nav-menu">
-                      <li class="mb-1"><%=link_to "ルーム登録",new_room_path,class: "nav_link",:style=>"color:black;"%></li>
-                      <li class="mb-1"><%=link_to "予約済みルーム一覧",reservations_path,class: "nav_link",:style=>"color:black;" %></li>
-                      <li class="mb-1"><%=link_to "登録済みルーム一覧",rooms_posts_path,class: "nav_link",:style=>"color:black;"%></li>
-                      <li class="mb-1"><%=link_to "設定",account_path,class: "nav_link",:style=>"color:black;"%></li>
-                      <li class="mb-1"><%=link_to "ログアウト",destroy_user_session_path,method: :delete,class: "nav_link",:style=>"color:black;"%></li>
-                    </ul>
-                  </div>
-                  
+                 
 
             </div>
           </div>
@@ -114,3 +106,7 @@
   </body>
   
 </html>
+
+
+
+
