@@ -1,6 +1,19 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'bootstrap', '~> 4.3.1'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'jquery-rails'
+gem 'devise'
+gem 'pry-rails'
+gem 'mini_magick'
+gem 'image_processing'
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+gem "font-awesome-sass", "~> 6.1.2"
+
+
 ruby '3.0.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
