@@ -20,10 +20,7 @@ class UsersController < ApplicationController
     end  
   end
   
-  def logout
-    session[:user_id] = nil
-    redirect_to root_path
-  end
+
 
 
   private

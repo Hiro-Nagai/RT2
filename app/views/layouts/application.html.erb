@@ -50,7 +50,7 @@
 <!--                <div class="user_header_image nav-item p-2 m-1">
                   <% if current_user.image.attached? %>
                     <%= image_tag current_user.image ,style: "border-radius: 50%",:size => "65x65" %>
-                  <%else%>
+                  <%else%>--
                     <%= image_tag "upper_body-2.png",style: "border-radius: 50%",:size => "65x65"%>
                   <%end%>
                   </div>
@@ -63,6 +63,7 @@
                       <img class="host-icon" src="/assets/default_icon.jpeg">  
                     <% end %>
                   </button>
+                  
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li><%= link_to "ルーム登録", new_room_path, class:"dropdown-item" %></li>
                     <li><%= link_to "予約ルーム一覧", reservations_path, class:"dropdown-item" %></li>
